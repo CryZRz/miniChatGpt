@@ -1,0 +1,27 @@
+# Entornos virtuales
+bin/
+include/
+lib/
+lib64
+pyvenv.cfg
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Variables de entorno y secretos
+.env
+.env.local
+*.key
+
+# Documentos generados y archivos temporales
+*.docx
+*.pdf
+.~lock.*
+*.tmp
+

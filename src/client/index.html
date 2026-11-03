@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="/index.js" defer></script> 
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>MIni chat</title>
+</head>
+<body class="bg-slate-950 w-full h-screen overflow-y-hidden" x-data="chatApp">
+    <header class="w-full h-[5%] border border-b-white p-3">
+        <h1 class="text-white font-bold text-2xl text-center">Mini Chat</h1>
+    </header>
+    <main class="h-[88%] overflow-y-scroll w-full">
+        <div id="messages-container">
+            <template x-for="chat in chats">
+                <div class="flex w-full p-1" :class="chat.isOwn ? 'justify-end' : 'justify-start'">
+                    <div class="p-2 bg-white rounded-md text-black">
+                        <span x-text="chat.message"></span>
+                    </div>      
+                </div>
+            </template>
+        </div>
+    </main>
+    <section class="h-[10%] w-full pt-3 px-1 border border-t-white">
+        <form @submit.prevent="sendMessage">
+            <input x-model="inputMessage" id="input-message" class="text-white w-[90%] p-1 border border-white rounded-md" type="text" placeholder="Ingresa un menaje">
+            <button type="submit" class="w-[9%] bg-white rounded-md p-1">Enviar</button>
+        </form>
+    </section>
+</body>
+</html>
